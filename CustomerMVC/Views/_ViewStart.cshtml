@@ -1,0 +1,12 @@
+﻿@using Microsoft.AspNetCore.Http;
+@{
+    var httpContext = ViewContext.HttpContext;
+    if (httpContext != null && httpContext.Session.GetString("IsLoggedIn") == "true")
+    {
+        Layout = "_Layout";
+    }
+    else
+    {
+        Layout = "_SignInLayout";
+    }
+}

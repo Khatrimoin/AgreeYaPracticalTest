@@ -1,0 +1,32 @@
+﻿@model IEnumerable<SharedModels.Customer>
+
+    <a asp-action="Create">Create New Customer</a>
+
+<h1>Customer List</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Email</th>
+            <!-- Add other properties as needed -->
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var customer in Model)
+        {
+            <tr>
+                <td>@customer.Id</td>
+                <td>@customer.FirstName</td>
+                <td>@customer.Email</td>
+                <!-- Add other properties as needed -->
+                <td>
+                    <a asp-action="Edit" asp-route-id="@customer.Id">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@customer.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
